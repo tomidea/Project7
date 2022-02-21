@@ -18,7 +18,7 @@ Mount lv-logs on  /mnt/logs – To be used by webserver logs
 Mount lv-opt on  /mnt/opt – To be used by Jenkins server in Project 8
 img
 
-Install NFS server, configure it to start on reboot and make sure it is u and running
+Install NFS server, configure it to start on reboot and make sure it is up and running
 *sudo yum -y update
 sudo yum install nfs-utils -y
 sudo systemctl start nfs-server.service
@@ -115,6 +115,7 @@ setsebool -P httpd_execmem 1
 - Fork the tooling source code from Darey.io Github Account to your Github account. 
   
 - Deploy the tooling website’s code to the Webserver. Ensure that the html folder from the repository is deployed to /var/www/html
+  cp -R /html/. /var/www/html
   - open TCP port 80 on the Web Server.
   - disable SELinux sudo setenforce 0
 - To make this change permanent – open following config file sudo vi /etc/sysconfig/selinux and set SELINUX=disabledthen restrt httpd.
